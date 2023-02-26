@@ -1,15 +1,7 @@
 #include <iostream>
+#include<tagParser.h>
 
 using namespace std;
-
-/*
-struct TagStruct
-{
-    string tagName;
-    int tagPairs;
-    string tagText;
-}; */
-
 
 int main() {
     char cmdInput; // Command line input from user
@@ -23,6 +15,12 @@ int main() {
     for ( ; ; )
     {
         cin >> cmdInput;
+
+        string fname; //File name for 'read' cmd
+
+        if (cmdInput == 'r'){
+            cin >> fname;
+        }
 
         // Event loop quit - terminates program
         if (cmdInput == 'q'){
