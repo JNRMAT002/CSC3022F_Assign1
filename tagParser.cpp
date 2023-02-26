@@ -2,15 +2,27 @@
 
 using namespace std;
 
+/*
 struct TagStruct
 {
-    /* data */
     string tagName;
     int tagPairs;
     string tagText;
-};
+}; */
 
 
 int main() {
+    char cmdInput;
+
+    cout << "Test cmd line input: " ;
+
+    for ( ; ; )
+    {
+        cin >> cmdInput;
+
+        if (cmdInput == 'q'){
+            break;
+        }
+    }
     
 }
