@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdlib>
 
 using namespace std;
 
@@ -13,16 +12,19 @@ struct TagStruct
 
 
 int main() {
-    char cmdInput;
+    char cmdInput; // Command line input from user
 
+    // Command loop input instructions for user
     cout << "r: Read and process tag file" << "\n"
     << "p: Print all tags" << "\n" << "d: Dump tags to text file"
     << "\n" << "l: List tag data" << "\n" << "q: Quit" << endl;
 
+    // Event loop
     for ( ; ; )
     {
         cin >> cmdInput;
 
+        // Event loop quit - terminates program
         if (cmdInput == 'q'){
             break;
         }
