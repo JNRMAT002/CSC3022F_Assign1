@@ -10,7 +10,9 @@ namespace JNRMAT002 {
         std::string tagName;
         int tagPairs;
         std::string tagText;
-    }; 
+    };
+
+    
 }
 
 #endif

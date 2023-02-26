@@ -1,5 +1,7 @@
 #include <iostream>
-#include<tagParser.h>
+#include <fstream>
+#include <vector>
+#include "tagParser.h"
 
 using namespace std;
 
@@ -19,7 +21,15 @@ int main() {
         string fname; //File name for 'read' cmd
 
         if (cmdInput == 'r'){
+            string lineText;
             cin >> fname;
+            ifstream TagFile(fname);
+
+            while (getline (TagFile, lineText)) {
+                cout << lineText << endl;
+            }
+
+            TagFile.close();
         }
 
         // Event loop quit - terminates program
