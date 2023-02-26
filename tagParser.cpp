@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -14,7 +15,9 @@ struct TagStruct
 int main() {
     char cmdInput;
 
-    cout << "Test cmd line input: " ;
+    cout << "r: Read and process tag file" << "\n"
+    << "p: Print all tags" << "\n" << "d: Dump tags to text file"
+    << "\n" << "l: List tag data" << "\n" << "q: Quit" << endl;
 
     for ( ; ; )
     {
@@ -23,6 +26,5 @@ int main() {
         if (cmdInput == 'q'){
             break;
         }
-    }
-    
+    }    
 }
