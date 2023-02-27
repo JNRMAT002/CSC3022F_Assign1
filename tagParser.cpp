@@ -33,21 +33,22 @@ int main() {
 
                 while (linePos != lineEnd) {
                     if (lineText.substr(linePos, linePos+2) == "</") {
-                        linePos += lineText.substr(linePos, lineText.find('>')).length();
+                        linePos += lineText.substr(linePos, lineText.find('>')).length()+1;
                     }
                     else if (lineText.substr(linePos, linePos+1) == "<") {
                         tagNameTemp = lineText.substr(linePos+1, lineText.find('>')-1);
-                        linePos += lineText.substr(linePos, lineText.find('>')).length();
+                        linePos += lineText.substr(linePos, lineText.find('>')+1).length();
 
                         cout << tagNameTemp << endl;
                     }
                     else {
-                        tagTextTemp = lineText.substr(linePos+1, lineText.find('<')-1);
+                        tagTextTemp = lineText.substr(linePos, lineText.find('<')-1);
                         linePos += lineText.substr(linePos, lineText.find('<')-1).length();
 
                         if (tagTextTemp.find('<')) {
                             tagTextTemp = tagTextTemp.substr(0, tagTextTemp.find('<'));
                         }
+
                         cout << tagTextTemp << endl;
                     }
 
