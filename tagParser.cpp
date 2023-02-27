@@ -1,6 +1,6 @@
 #include <iostream>
+#include <string>
 #include <fstream>
-#include <sstream>
 #include <vector>
 #include "tagParser.h"
 
@@ -13,6 +13,7 @@ int main() {
     for ( ; ; )
     {
         JNRMAT002::printInstructions();
+        struct JNRMAT002::TagStruct tags;
 
         cin >> cmdInput;
 
@@ -25,11 +26,31 @@ int main() {
             ifstream TagFile(fname);
 
             while (getline (TagFile, lineText)) {
-                stringstream s(lineText); // line of text interpreted as stringstream
-                string word; // stores each word in the line
+                string tagTextTemp; // to concatenate each word in the line to form the full tagText
+                string tagNameTemp;
+                int linePos = 0;
+                int lineEnd = lineText.length();
 
-                while (s >> word) {
-                    cout << word;
+                while (linePos != lineEnd) {
+                    if (lineText.substr(linePos, linePos+2) == "</") {
+                        linePos += lineText.substr(linePos, lineText.find('>')).length();
+                    }
+                    else if (lineText.substr(linePos, linePos+1) == "<") {
+                        tagNameTemp = lineText.substr(linePos+1, lineText.find('>')-1);
+                        linePos += lineText.substr(linePos, lineText.find('>')).length();
+
+                        cout << tagNameTemp << endl;
+                    }
+                    else {
+                        tagTextTemp = lineText.substr(linePos+1, lineText.find('<')-1);
+                        linePos += lineText.substr(linePos, lineText.find('<')-1).length();
+
+                        if (tagTextTemp.find('<')) {
+                            tagTextTemp = tagTextTemp.substr(0, tagTextTemp.find('<'));
+                        }
+                        cout << tagTextTemp << endl;
+                    }
+
                 }
 
             }

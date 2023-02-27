@@ -2,14 +2,15 @@
 #define MY_HDR
 
 #include <string>
+#include <vector>
 
 namespace JNRMAT002 {
 
     struct TagStruct
     {
-        std::string tagName;
-        int tagPairs;
-        std::string tagText;
+        std::vector<std::string> tagName;
+        std::vector<int> tagPairs;
+        std::vector<std::string> tagText;
     };
 
     void printInstructions() {
