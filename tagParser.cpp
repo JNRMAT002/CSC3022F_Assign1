@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include "tagParser.h"
 
@@ -17,13 +18,20 @@ int main() {
 
         string fname; //File name for 'read' cmd
 
-        if (cmdInput == 'r'){
+        if (cmdInput == 'r') {
+            cout << "Enter text file name (include .txt in tour response): ";
             string lineText;
             cin >> fname;
             ifstream TagFile(fname);
 
             while (getline (TagFile, lineText)) {
-                cout << lineText << endl;
+                stringstream s(lineText); // line of text interpreted as stringstream
+                string word; // stores each word in the line
+
+                while (s >> word) {
+                    cout << word;
+                }
+
             }
 
             TagFile.close();
