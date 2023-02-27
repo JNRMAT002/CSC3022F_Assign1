@@ -8,14 +8,11 @@ using namespace std;
 int main() {
     char cmdInput; // Command line input from user
 
-    // Command loop input instructions for user
-    cout << "r: Read and process tag file" << "\n"
-    << "p: Print all tags" << "\n" << "d: Dump tags to text file"
-    << "\n" << "l: List tag data" << "\n" << "q: Quit" << endl;
-
     // Event loop
     for ( ; ; )
     {
+        JNRMAT002::printInstructions();
+
         cin >> cmdInput;
 
         string fname; //File name for 'read' cmd
@@ -36,5 +33,7 @@ int main() {
         if (cmdInput == 'q'){
             break;
         }
-    }    
+    }
+
+    return 0;
 }

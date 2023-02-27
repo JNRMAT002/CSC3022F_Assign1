@@ -12,7 +12,12 @@ namespace JNRMAT002 {
         std::string tagText;
     };
 
-    
+    void printInstructions() {
+    // Command loop input instructions for user
+    std::cout << "\n" << "r: Read and process tag file" << "\n"
+    << "p: Print all tags" << "\n" << "d: Dump tags to text file"
+    << "\n" << "l: List tag data" << "\n" << "q: Quit" << "\n" << std::endl;
+    }
 }
 
 #endif
